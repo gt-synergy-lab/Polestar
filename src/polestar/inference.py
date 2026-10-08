@@ -15,6 +15,39 @@ class GenerationResult:
     nfe: int | None
 
 
+def _decode_response(tokenizer: Any, token_ids: list[int], *, mask_token_id: int | None, trim_chat_end: bool) -> str:
+    """Format generated text while keeping unresolved mask tokens visible."""
+    text = tokenizer.decode(token_ids, skip_special_tokens=False)
+    if tokenizer.eos_token:
+        text = text.split(tokenizer.eos_token, 1)[0]
+
+    mask_tokens = {getattr(tokenizer, "mask_token", None)}
+    if mask_token_id is not None:
+        mask_tokens.add(tokenizer.convert_ids_to_tokens(mask_token_id))
+    special_tokens = getattr(tokenizer, "all_special_tokens", ())
+    for token in sorted(set(special_tokens) - mask_tokens, key=len, reverse=True):
+        if token:
+            text = text.replace(token, "")
+
+    text = text.strip()
+    if trim_chat_end:
+        visible_ids = list(token_ids)
+        eos_token_id = getattr(tokenizer, "eos_token_id", None)
+        if eos_token_id in visible_ids:
+            visible_ids = visible_ids[:visible_ids.index(eos_token_id)]
+        chat_end_id = tokenizer.convert_tokens_to_ids("<|eot_id|>")
+        if chat_end_id is not None and chat_end_id != getattr(tokenizer, "unk_token_id", None):
+            while visible_ids:
+                if not tokenizer.decode([visible_ids[-1]], skip_special_tokens=False).strip():
+                    visible_ids.pop()
+                elif visible_ids[-1] == chat_end_id and text.endswith("<|eot_id|>"):
+                    visible_ids.pop()
+                    text = text.removesuffix("<|eot_id|>").rstrip()
+                else:
+                    break
+    return text
+
+
 def load_model(config: PolestarConfig, device: str = "cuda") -> tuple[Any, Any]:
     """Load the Polestar model implementation and checkpoint tokenizer."""
     if config.model_type == "llada_v":
@@ -125,7 +158,13 @@ def generate(
         else:
             raise ValueError(f"Unsupported model_type: {config.model_type}")
 
-    text = tokenizer.decode(token_ids[0].tolist(), skip_special_tokens=False)
-    if tokenizer.eos_token:
-        text = text.split(tokenizer.eos_token, 1)[0]
-    return GenerationResult(text=text.strip(), token_ids=token_ids, nfe=nfe)
+    mask_token_id = config.generation.get("mask_id")
+    if mask_token_id is None:
+        mask_token_id = getattr(getattr(model, "config", None), "mask_token_id", None)
+    if mask_token_id is None and config.model_type in {"llada", "llada_v"}:
+        mask_token_id = 126336
+    text = _decode_response(
+        tokenizer, token_ids[0].tolist(), mask_token_id=mask_token_id,
+        trim_chat_end=config.model_type in {"llada", "llada_v"},
+    )
+    return GenerationResult(text=text, token_ids=token_ids, nfe=nfe)

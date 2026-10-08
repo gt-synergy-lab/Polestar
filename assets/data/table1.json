@@ -1,0 +1,654 @@
+{
+  "source": "https://arxiv.org/pdf/2607.14107",
+  "table": 1,
+  "rows": [
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Baseline",
+      "accuracy": 79.3,
+      "tpf": 1.0,
+      "tps": 6.58
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Baseline",
+      "accuracy": 75.85,
+      "tpf": 1.0,
+      "tps": 9.85
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Baseline+Parallel",
+      "accuracy": 78.57,
+      "tpf": 2.95,
+      "tps": 17.65
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Baseline+Parallel",
+      "accuracy": 72.96,
+      "tpf": 1.56,
+      "tps": 12.1
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Fast-dLLM",
+      "accuracy": 77.88,
+      "tpf": 2.72,
+      "tps": 47.88
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Fast-dLLM",
+      "accuracy": 66.67,
+      "tpf": 1.71,
+      "tps": 39.86
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Dynamic-dLLM",
+      "accuracy": 78.01,
+      "tpf": 2.79,
+      "tps": 49.15
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Dynamic-dLLM",
+      "accuracy": 68.16,
+      "tpf": 1.79,
+      "tps": 41.01
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Elastic-Cache",
+      "accuracy": 77.58,
+      "tpf": 2.93,
+      "tps": 55.01
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Elastic-Cache",
+      "accuracy": 63.63,
+      "tpf": 1.48,
+      "tps": 31.5
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Polestar",
+      "accuracy": 78.33,
+      "tpf": 3.67,
+      "tps": 87.57
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 256,
+      "method": "Polestar",
+      "accuracy": 72.4,
+      "tpf": 2.39,
+      "tps": 52.8
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Baseline",
+      "accuracy": 77.5,
+      "tpf": 1.0,
+      "tps": 3.93
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Baseline",
+      "accuracy": 76.9,
+      "tpf": 1.0,
+      "tps": 6.59
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Baseline+Parallel",
+      "accuracy": 77.5,
+      "tpf": 2.85,
+      "tps": 18.82
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Baseline+Parallel",
+      "accuracy": 69.95,
+      "tpf": 1.96,
+      "tps": 15.99
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Fast-dLLM",
+      "accuracy": 76.52,
+      "tpf": 2.58,
+      "tps": 38.07
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Fast-dLLM",
+      "accuracy": 64.55,
+      "tpf": 1.38,
+      "tps": 25.11
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Dynamic-dLLM",
+      "accuracy": 76.65,
+      "tpf": 2.9,
+      "tps": 42.79
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Dynamic-dLLM",
+      "accuracy": 65.03,
+      "tpf": 1.47,
+      "tps": 26.2
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Elastic-Cache",
+      "accuracy": 76.97,
+      "tpf": 2.61,
+      "tps": 38.44
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Elastic-Cache",
+      "accuracy": 58.94,
+      "tpf": 1.13,
+      "tps": 19.39
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Polestar",
+      "accuracy": 78.18,
+      "tpf": 3.59,
+      "tps": 80.6
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "GSM8K",
+      "generation_length": 512,
+      "method": "Polestar",
+      "accuracy": 69.65,
+      "tpf": 2.13,
+      "tps": 34.44
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Baseline",
+      "accuracy": 33.5,
+      "tpf": 1.0,
+      "tps": 9.1
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Baseline",
+      "accuracy": 41.69,
+      "tpf": 1.0,
+      "tps": 10.65
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Baseline+Parallel",
+      "accuracy": 33.1,
+      "tpf": 2.51,
+      "tps": 22.9
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Baseline+Parallel",
+      "accuracy": 41.3,
+      "tpf": 1.68,
+      "tps": 25.87
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Fast-dLLM",
+      "accuracy": 30.18,
+      "tpf": 2.3,
+      "tps": 38.13
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Fast-dLLM",
+      "accuracy": 37.19,
+      "tpf": 1.79,
+      "tps": 49.08
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Dynamic-dLLM",
+      "accuracy": 30.09,
+      "tpf": 2.6,
+      "tps": 43.24
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Dynamic-dLLM",
+      "accuracy": 37.47,
+      "tpf": 2.04,
+      "tps": 54.93
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Elastic-Cache",
+      "accuracy": 29.35,
+      "tpf": 2.08,
+      "tps": 42.56
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Elastic-Cache",
+      "accuracy": 30.02,
+      "tpf": 1.73,
+      "tps": 43.05
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Polestar",
+      "accuracy": 32.77,
+      "tpf": 2.91,
+      "tps": 70.05
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 256,
+      "method": "Polestar",
+      "accuracy": 40.75,
+      "tpf": 2.29,
+      "tps": 59.62
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Baseline",
+      "accuracy": 36.6,
+      "tpf": 1.0,
+      "tps": 8.3
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Baseline",
+      "accuracy": 38.95,
+      "tpf": 1.0,
+      "tps": 9.8
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Baseline+Parallel",
+      "accuracy": 36.15,
+      "tpf": 2.5,
+      "tps": 19.6
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Baseline+Parallel",
+      "accuracy": 37.9,
+      "tpf": 2.1,
+      "tps": 32.8
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Fast-dLLM",
+      "accuracy": 33.2,
+      "tpf": 2.6,
+      "tps": 50.79
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Fast-dLLM",
+      "accuracy": 32.64,
+      "tpf": 2.27,
+      "tps": 57.79
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Dynamic-dLLM",
+      "accuracy": 32.22,
+      "tpf": 2.79,
+      "tps": 54.57
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Dynamic-dLLM",
+      "accuracy": 33.88,
+      "tpf": 2.47,
+      "tps": 61.58
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Elastic-Cache",
+      "accuracy": 30.85,
+      "tpf": 2.17,
+      "tps": 39.22
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Elastic-Cache",
+      "accuracy": 33.17,
+      "tpf": 2.35,
+      "tps": 54.46
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Polestar",
+      "accuracy": 34.85,
+      "tpf": 3.3,
+      "tps": 69.84
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "MATH",
+      "generation_length": 512,
+      "method": "Polestar",
+      "accuracy": 35.71,
+      "tpf": 2.81,
+      "tps": 66.21
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Baseline",
+      "accuracy": 43.35,
+      "tpf": 1.0,
+      "tps": 17.6
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Baseline",
+      "accuracy": 58.8,
+      "tpf": 1.0,
+      "tps": 23.3
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Baseline+Parallel",
+      "accuracy": 43.9,
+      "tpf": 3.11,
+      "tps": 56.41
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Baseline+Parallel",
+      "accuracy": 58.8,
+      "tpf": 2.1,
+      "tps": 46.97
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Fast-dLLM",
+      "accuracy": 38.63,
+      "tpf": 2.64,
+      "tps": 54.19
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Fast-dLLM",
+      "accuracy": 48.48,
+      "tpf": 1.36,
+      "tps": 40.45
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Dynamic-dLLM",
+      "accuracy": 38.84,
+      "tpf": 3.11,
+      "tps": 63.79
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Dynamic-dLLM",
+      "accuracy": 48.0,
+      "tpf": 1.45,
+      "tps": 42.21
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Elastic-Cache",
+      "accuracy": 41.67,
+      "tpf": 3.08,
+      "tps": 72.75
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Elastic-Cache",
+      "accuracy": 55.3,
+      "tpf": 1.27,
+      "tps": 33.58
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Polestar",
+      "accuracy": 42.42,
+      "tpf": 3.38,
+      "tps": 87.45
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 256,
+      "method": "Polestar",
+      "accuracy": 57.69,
+      "tpf": 1.79,
+      "tps": 55.18
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Baseline",
+      "accuracy": 44.1,
+      "tpf": 1.0,
+      "tps": 8.57
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Baseline",
+      "accuracy": 58.8,
+      "tpf": 1.0,
+      "tps": 15.48
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Baseline+Parallel",
+      "accuracy": 44.1,
+      "tpf": 2.71,
+      "tps": 34.53
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Baseline+Parallel",
+      "accuracy": 56.95,
+      "tpf": 1.93,
+      "tps": 26.77
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Fast-dLLM",
+      "accuracy": 44.24,
+      "tpf": 2.59,
+      "tps": 58.87
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Fast-dLLM",
+      "accuracy": 51.51,
+      "tpf": 1.23,
+      "tps": 32.21
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Dynamic-dLLM",
+      "accuracy": 44.48,
+      "tpf": 2.49,
+      "tps": 56.74
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Dynamic-dLLM",
+      "accuracy": 51.45,
+      "tpf": 1.42,
+      "tps": 36.55
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Elastic-Cache",
+      "accuracy": 45.45,
+      "tpf": 2.74,
+      "tps": 59.36
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Elastic-Cache",
+      "accuracy": 53.03,
+      "tpf": 1.01,
+      "tps": 23.14
+    },
+    {
+      "model": "LLaDA-8B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Polestar",
+      "accuracy": 47.73,
+      "tpf": 3.23,
+      "tps": 77.67
+    },
+    {
+      "model": "Dream-7B-Instruct",
+      "benchmark": "HumanEval",
+      "generation_length": 512,
+      "method": "Polestar",
+      "accuracy": 54.36,
+      "tpf": 1.77,
+      "tps": 41.68
+    }
+  ]
+}

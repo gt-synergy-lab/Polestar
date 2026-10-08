@@ -12,6 +12,51 @@ def runtime_stats():
     return dict(_RUNTIME_STATS)
 
 
+def _apply_scoring_models(task_dict, scoring_models):
+    for task in task_dict.values():
+        if isinstance(task, dict):
+            _apply_scoring_models(task, scoring_models)
+            continue
+        task_name = task.get_config("task")
+        family = task_name.split("_", 1)[0]
+        if family not in scoring_models:
+            continue
+        scorer_name = scoring_models[family]
+        function_fields = ("doc_to_text", "doc_to_visual", "doc_to_target", "process_docs", "process_results")
+        functions = [*(task.get_config(field) for field in function_fields), *task.aggregation().values()]
+        for function in functions:
+            namespace = getattr(function, "__globals__", {})
+            scorer = namespace.get(f"{family}_evaluator")
+            if scorer is not None:
+                scorer.gpt_model = scorer_name
+                config = namespace.get("config", {})
+                if isinstance(config.get("metadata"), dict):
+                    config["metadata"]["gpt_eval_model_name"] = scorer_name
+        metadata = task.get_config("metadata")
+        if isinstance(metadata, dict) and "gpt_eval_model_name" in metadata:
+            task.set_config("metadata", {**metadata, "gpt_eval_model_name": scorer_name})
+
+
+def create_task_manager(scoring_models=None):
+    """Apply the selected scorer to the task functions loaded by lmms-eval."""
+    from lmms_eval.tasks import TaskManager
+
+    scoring_models = scoring_models or {}
+
+    class PolestarTaskManager(TaskManager):
+        def load_task_or_group(self, task_list=None):
+            tasks = super().load_task_or_group(task_list)
+            _apply_scoring_models(tasks, scoring_models)
+            return tasks
+
+        def load_config(self, config):
+            tasks = super().load_config(config)
+            _apply_scoring_models(tasks, scoring_models)
+            return tasks
+
+    return PolestarTaskManager(model_name="polestar_llada_v")
+
+
 def register_model(scoring_models=None):
     """Register Polestar with lmms-eval when the vision evaluation is requested."""
     from lmms_eval.api.model import lmms

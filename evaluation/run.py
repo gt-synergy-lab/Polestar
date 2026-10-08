@@ -2,11 +2,37 @@
 
 import argparse
 import json
+import math
 import os
 from pathlib import Path
 import random
 
 from polestar import PolestarConfig
+
+
+def parse_limit(value):
+    """Accept a positive example count or a fraction of the task dataset."""
+    try:
+        limit = float(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError("limit must be an example count or a fraction") from error
+    if not math.isfinite(limit) or limit <= 0:
+        raise argparse.ArgumentTypeError("limit must be positive and finite")
+    if limit >= 1:
+        if not limit.is_integer():
+            raise argparse.ArgumentTypeError("example counts must be integers; fractions must be below 1")
+        return int(limit)
+    return limit
+
+
+def vision_task_spec(task):
+    """Use anonymous access for the public MathVista dataset when no token is set."""
+    if task == "mathvista_testmini":
+        from huggingface_hub import get_token
+
+        if get_token() is None:
+            return {"task": task, "dataset_kwargs": {"token": False}}
+    return task
 
 
 def json_value(value):
@@ -24,7 +50,8 @@ def main():
     parser.add_argument("--task", default="gsm8k")
     parser.add_argument("--output-path", required=True)
     parser.add_argument("--max-new-tokens", type=int)
-    parser.add_argument("--limit", type=int, help="Number of examples for a smoke run")
+    parser.add_argument("--limit", type=parse_limit, help="Example count or dataset fraction (e.g. 8 or 0.1)")
+    parser.add_argument("--predict-only", action="store_true", help="Save model outputs without computing task scores")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--allow-code-execution", action="store_true")
@@ -37,8 +64,6 @@ def main():
     output = Path(args.output_path)
     if (output / "results.json").exists():
         parser.error("results.json already exists; choose a new output directory")
-    if args.limit is not None and args.limit < 1:
-        parser.error("--limit must be a positive example count")
 
     import numpy as np
     import torch
@@ -53,7 +78,7 @@ def main():
         suite = json.loads(Path("configs/evaluation/vision.json").read_text())
         if args.task not in suite["tasks"]:
             parser.error("select a task from configs/evaluation/vision.json")
-        from polestar.evaluation.vision import register_model, runtime_stats
+        from polestar.evaluation.vision import create_task_manager, register_model, runtime_stats
         from lmms_eval import evaluator
 
         register_model(suite.get("scoring_models"))
@@ -61,12 +86,19 @@ def main():
             parser.error("set vision generation settings in its model preset")
         results = evaluator.simple_evaluate(
             model="polestar_llada_v",
-            model_args=f"config_path={args.config},device={args.device},batch_size=1",
-            tasks=[args.task],
+            model_args=f"config_path={args.config},device={args.device}",
+            tasks=[vision_task_spec(args.task)],
             num_fewshot=suite.get("num_fewshot", 0),
             batch_size=1,
             limit=args.limit,
             log_samples=True,
+            predict_only=args.predict_only,
+            cli_args=args,
+            task_manager=create_task_manager(suite.get("scoring_models")),
+            random_seed=args.seed,
+            numpy_random_seed=args.seed,
+            torch_random_seed=args.seed,
+            fewshot_random_seed=args.seed,
         )
         results["polestar_runtime"] = runtime_stats()
     else:
@@ -118,6 +150,7 @@ def main():
             batch_size=1,
             limit=args.limit,
             log_samples=True,
+            predict_only=args.predict_only,
             confirm_run_unsafe_code=args.allow_code_execution,
             random_seed=args.seed,
             numpy_random_seed=args.seed,
@@ -134,7 +167,10 @@ def main():
         "generation": config.generation,
         "seed": args.seed,
         "limit": args.limit,
+        "predict_only": args.predict_only,
     }
+    if config.model_type == "llada_v":
+        results["polestar"]["scoring_models"] = suite.get("scoring_models", {})
     output.mkdir(parents=True, exist_ok=True)
     (output / "results.json").write_text(json.dumps(results, indent=2, default=json_value) + "\n")
     for task_name, rows in samples.items():

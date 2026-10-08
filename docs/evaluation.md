@@ -16,7 +16,14 @@ python evaluation/run.py --config configs/llada8b.json --task gsm8k --output-pat
 
 Replace the model preset with `configs/llada15.json` or `configs/dream7b.json` to evaluate the other text models. Use `--max-new-tokens 512` for the longer generation setting. Presets and the task protocol are in `configs/evaluation/text.json`.
 
-For a smoke run, add `--limit 16` and use a separate output path. Omitting `--limit` evaluates the complete task. Never compare a smoke-run score to a complete benchmark score.
+For a smoke run, add `--limit 8` and use a separate output path. A fraction such as `--limit 0.1` evaluates 10% of each selected task. Omitting `--limit` evaluates the complete task.
+
+Add `--predict-only` to save generated responses without computing task scores. For example:
+
+```bash
+python evaluation/run.py --config configs/llada8b.json --task gsm8k \
+  --limit 8 --predict-only --output-path results/llada8b-gsm8k-smoke
+```
 
 ## Code generation and scoring
 
@@ -50,7 +57,16 @@ python evaluation/run.py --config configs/llada-v.json --task mathverse_testmini
   --output-path results/llada-v-mathverse
 ```
 
-The official task scorers use an OpenAI model to extract/judge answers. Set `OPENAI_API_KEY` in your environment for these evaluation commands; generation examples do not use this API. Scoring model settings are in `configs/evaluation/vision.json`.
+The official task scorers use an OpenAI model to extract/judge answers. Set `OPENAI_API_KEY` in your environment for these evaluation commands. Scoring model settings are in `configs/evaluation/vision.json`.
+
+To check image-benchmark generation and sample export without calling the answer scorer, use prediction mode:
+
+```bash
+python evaluation/run.py --config configs/llada-v.json --task mathvista_testmini \
+  --limit 8 --predict-only --output-path results/llada-v-mathvista-smoke
+```
+
+Prediction mode and the standalone generation examples do not use the scoring API.
 
 ## Results and measurements
 
