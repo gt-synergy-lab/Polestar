@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use Polestar, please cite our paper."
+title: "Polestar: Drift-Aware Cache Calibration and Token Commitment for Efficient Inference of Diffusion LLMs"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Lee
+    given-names: Mingyu
+  - family-names: Ramachandran
+    given-names: Akshat
+  - family-names: Kundu
+    given-names: Souvik
+  - family-names: Krishna
+    given-names: Tushar
+repository-code: "https://github.com/gt-synergy-lab/Polestar"
+url: "https://arxiv.org/abs/2607.14107"
+license: MIT

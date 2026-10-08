@@ -1,0 +1,12 @@
+{
+  "model_type": "dream",
+  "model_id": "Dream-org/Dream-v0-Instruct-7B",
+  "generation": {
+    "max_new_tokens": 256,
+    "steps": 256,
+    "block_length": 32,
+    "temperature": 0.0,
+    "threshold": 0.9,
+    "threshold_early": 0.7
+  }
+}

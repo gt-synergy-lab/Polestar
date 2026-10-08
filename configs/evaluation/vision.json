@@ -1,0 +1,16 @@
+{
+  "harness": "lmms-eval",
+  "model": "polestar_llada_v",
+  "model_config": "configs/llada-v.json",
+  "tasks": [
+    "mathvista_testmini",
+    "mathverse_testmini_vision"
+  ],
+  "batch_size": 1,
+  "num_fewshot": 0,
+  "log_samples": true,
+  "scoring_models": {
+    "mathvista": "gpt-4o",
+    "mathverse": "gpt-4o"
+  }
+}

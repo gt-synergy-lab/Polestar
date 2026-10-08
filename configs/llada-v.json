@@ -1,0 +1,14 @@
+{
+  "model_type": "llada_v",
+  "model_id": "GSAI-ML/LLaDA-V",
+  "generation": {
+    "max_new_tokens": 256,
+    "steps": 256,
+    "block_length": 32,
+    "temperature": 0.0,
+    "threshold": 0.9,
+    "threshold_early": 0.7,
+    "dtype": "float16",
+    "interval": 32
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "generation_lengths": [
+    256,
+    512
+  ],
+  "batch_size": 1,
+  "tasks": {
+    "gsm8k": {
+      "num_fewshot": 5
+    },
+    "minerva_math": {
+      "num_fewshot": 4
+    },
+    "humaneval": {
+      "num_fewshot": 0,
+      "code_execution": true
+    },
+    "mbpp": {
+      "num_fewshot": 3,
+      "code_execution": true
+    }
+  }
+}

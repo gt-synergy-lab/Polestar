@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "polestar-dllm"
+version = "0.1.0"
+description = "Drift-aware cache calibration and token commitment for diffusion language models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT; bundled third-party code retains its original licenses"}
+authors = [{name = "Mingyu Lee"}, {name = "Akshat Ramachandran"}, {name = "Souvik Kundu"}, {name = "Tushar Krishna"}]
+dependencies = [
+  "torch==2.7.1", "transformers==4.49.0", "accelerate==0.34.2",
+  "numpy>=1.24,<3", "einops>=0.8,<0.9", "packaging>=23", "tqdm>=4.66"
+]
+
+[project.optional-dependencies]
+vision = ["Pillow>=10", "sentencepiece>=0.1.99"]
+eval = ["lm-eval[math]==0.4.8", "datasets>=2.16,<5", "evaluate>=0.4,<0.5", "math-verify==0.8.0", "peft==0.16.0"]
+vision-eval = ["Pillow>=10", "sentencepiece>=0.1.99", "lmms-eval==0.3.0", "python-Levenshtein>=0.21", "peft==0.16.0"]
+test = ["pytest>=8,<9"]
+
+[project.urls]
+Repository = "https://github.com/gt-synergy-lab/Polestar"
+Paper = "https://arxiv.org/abs/2607.14107"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+license-files = ["LICENSE", "LICENSES/*.txt", "THIRD_PARTY_NOTICES.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
