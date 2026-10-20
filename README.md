@@ -6,6 +6,7 @@
 
 **Official implementation · NeurIPS 2026**
 
+[![Website](https://img.shields.io/badge/Website-Polestar-76B900)](https://polestar-dllm.github.io/)
 [![arXiv](https://img.shields.io/badge/arXiv-2607.14107-b31b1b)](https://arxiv.org/abs/2607.14107)
 [![NeurIPS 2026](https://img.shields.io/badge/NeurIPS-2026-5b4ab0)](https://arxiv.org/pdf/2607.14107)
 [![Checks](https://github.com/gt-synergy-lab/Polestar/actions/workflows/checks.yml/badge.svg)](https://github.com/gt-synergy-lab/Polestar/actions/workflows/checks.yml)
@@ -15,12 +16,13 @@ Mingyu Lee\*, Akshat Ramachandran\*, Souvik Kundu, and Tushar Krishna<br>
 Georgia Institute of Technology · Intel AI Group<br>
 \* Equal contribution
 
-**[Paper](https://arxiv.org/pdf/2607.14107) · [Results](#performance) · [Quickstart](#quickstart) · [Models](#models-and-examples) · [Evaluation](docs/evaluation.md) · [Method](docs/method.md)**
+**[Website](https://polestar-dllm.github.io/) · [Paper](https://arxiv.org/pdf/2607.14107) · [Results](#performance) · [Quickstart](#quickstart) · [Models](#models-and-examples) · [Evaluation](docs/evaluation.md) · [Method](docs/method.md)**
 
 </div>
 
 ## News
 
+- **October 2026:** [Project website](https://polestar-dllm.github.io/) launched with interactive demos and benchmark results.
 - **October 2026:** Algorithm code released for LLaDA, Dream, and LLaDA-V.
 - **September 2026:** Polestar accepted at **NeurIPS 2026**.
 
