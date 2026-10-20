@@ -149,13 +149,11 @@ Questions and contributions are welcome through [issues](https://github.com/gt-s
 ## Citation
 
 ```bibtex
-@misc{lee2026polestar,
-  title={Polestar: Drift-Aware Cache Calibration and Token Commitment for Efficient Inference of Diffusion LLMs},
+@inproceedings{lee2026polestar,
+  title={Polestar: Drift-Aware Cache Calibration and Token Commitment for Efficient Inference of Diffusion {LLM}s},
   author={Mingyu Lee and Akshat Ramachandran and Souvik Kundu and Tushar Krishna},
+  booktitle={The Fortieth Annual Conference on Neural Information Processing Systems},
   year={2026},
-  eprint={2607.14107},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL},
   url={https://arxiv.org/abs/2607.14107}
 }
 ```
