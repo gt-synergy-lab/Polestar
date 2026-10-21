@@ -22,7 +22,7 @@ Georgia Institute of Technology · Intel AI Group<br>
 
 ## Video
 
-https://github.com/user-attachments/assets/ee8fd48d-ba32-4117-88d3-fd6482326e76
+https://github.com/user-attachments/assets/5fc2c4c0-0985-4036-b8fd-8819079f94bd
 
 ## News
 
