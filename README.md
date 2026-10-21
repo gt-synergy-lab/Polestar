@@ -16,9 +16,13 @@ Mingyu Lee\*, Akshat Ramachandran\*, Souvik Kundu, and Tushar Krishna<br>
 Georgia Institute of Technology · Intel AI Group<br>
 \* Equal contribution
 
-**[Website](https://polestar-dllm.github.io/) · [Paper](https://arxiv.org/pdf/2607.14107) · [Results](#performance) · [Quickstart](#quickstart) · [Models](#models-and-examples) · [Evaluation](docs/evaluation.md) · [Method](docs/method.md)**
+**[Website](https://polestar-dllm.github.io/) · [Paper](https://arxiv.org/pdf/2607.14107) · [Video](#video) · [Results](#performance) · [Quickstart](#quickstart) · [Models](#models-and-examples) · [Evaluation](docs/evaluation.md) · [Method](docs/method.md)**
 
 </div>
+
+## Video
+
+https://github.com/user-attachments/assets/ee8fd48d-ba32-4117-88d3-fd6482326e76
 
 ## News
 
